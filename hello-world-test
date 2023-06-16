@@ -1,14 +1,43 @@
 pipeline {
     agent any
-tools {
-  maven '/usr/share/maven'
-}
-}
-        stages {
-        stage('SCM-Checkout') {
+
+    stages {
+        stage('Checkout') {
             steps {
-   
-	             git 'https://github.com/magellis78/web-project-2023.git'
+                git 'https://github.com/magellis78/web-project-2023.git'
             }
         }
+
+        stage('Build') {
+            steps {
+                withMaven(maven: 'MavenInstallationName') {
+                    sh 'mvn clean install'
+                }
+            }
         }
+
+        stage('Test') {
+            steps {
+                withMaven(maven: 'MavenInstallationName') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                withMaven(maven: 'MavenInstallationName') {
+                    sh 'mvn package'
+                }
+            }
+        }
+
+        // Add more stages as needed
+
+        stage('Cleanup') {
+            steps {
+                cleanWs()
+            }
+        }
+    }
+}
