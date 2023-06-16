@@ -4,7 +4,7 @@ pipeline {
         stage('Download') { 
             steps {
                 https://github.com/magellis78/web-project-2023.git 
-            }
+            
         }
         stage('Test') { 
             steps {
