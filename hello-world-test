@@ -1,20 +1,5 @@
-pipeline 
-   agent any
-   
-   stages {
-      stage('SCM') 
-      {
-        steps {
-          git 'https://github.com/magellis78/web-project-2023.git'
-        }
-      }
-       stage('ContinuousBuild')
-        {
-            steps
-            {
-              sh label: '', script: 'mvn package'
-            }
-                
-        }
-      
-   }
+pipeline {
+    agent any
+tools {
+  maven '/usr/share/maven'
+}
