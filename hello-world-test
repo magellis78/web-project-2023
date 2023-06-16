@@ -3,3 +3,12 @@ pipeline {
 tools {
   maven '/usr/share/maven'
 }
+}
+        stages {
+        stage('SCM-Checkout') {
+            steps {
+   
+	             git 'https://github.com/magellis78/web-project-2023.git'
+            }
+        }
+        }
