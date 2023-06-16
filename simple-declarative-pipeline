@@ -1,30 +1,9 @@
-pipeline {
-    agent any 
-    stages {
-        stage('Download') { 
-            steps {
-                https://github.com/magellis78/web-project-2023.git 
-            
+pipeline 
+   agent any
+   stages {
+      stage('Download') {
+        steps {
+            https://github.com/magellis78/web-project-2023.git
         }
-        stage('Test') { 
-            steps {
-                echo "I am in Test stage"
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                echo "I am in Deploy stage"  
-            }
-        }
-        stage('Archive') { 
-            steps {
-                echo "I am in Archive stage"  
-            }
-        }
-        stage('Goodbye') { 
-            steps {
-                echo "I am in Goodbye stage"  
-            }
-        }
-    }
-}
+      }
+   }
