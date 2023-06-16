@@ -3,7 +3,7 @@ pipeline
    stages {
       stage('Download') {
         steps {
-            https://github.com/magellis78/web-project-2023.git
+           git branch: 'main', url: 'https://github.com/magellis78/web-project-2023.git'
         }
       }
    }
