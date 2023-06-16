@@ -10,34 +10,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                withMaven(maven: 'MavenInstallationName') {
                     sh 'mvn clean install'
                 }
             }
-        }
 
         stage('Test') {
             steps {
-                withMaven(maven: 'MavenInstallationName') {
-                    sh 'mvn test'
+                sh 'mvn test'
                 }
             }
-        }
+        
 
         stage('Package') {
             steps {
-                withMaven(maven: 'MavenInstallationName') {
-                    sh 'mvn package'
+                sh 'mvn package'
+                   
                 }
             }
+        
+        }
+        
         }
 
-        // Add more stages as needed
-
-        stage('Cleanup') {
-            steps {
-                cleanWs()
-            }
-        }
-    }
-}
