@@ -6,7 +6,7 @@ pipeline
            git branch: 'main', url:'https://github.com/magellis78/web-project-2023.git'
         }
       }
-      stage('Test') { 
+stage('Test') { 
             steps {
                 echo "I am in Test stage"
             }
@@ -16,15 +16,4 @@ pipeline
                 echo "I am in Deploy stage"  
             }
         }
-        stage('Archive') { 
-            steps {
-                echo "I am in Archive stage"  
-            }
-        }
-        stage('Goodbye') { 
-            steps {
-                echo "I am in Goodbye stage"  
-            }
-        }
-    }
-   }
+    
